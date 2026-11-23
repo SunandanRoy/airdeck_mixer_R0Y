@@ -1,0 +1,27 @@
+{
+  "name": "airdeck",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Turn YouTube tabs into DJ decks. A Chrome extension that runs entirely in your browser.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test --trace off",
+    "typecheck": "tsc -p jsconfig.json --noEmit",
+    "lint": "eslint .",
+    "check": "npm run typecheck && npm run lint && npm test && npm run e2e",
+    "icons": "node scripts/make-icons.mjs",
+    "zip": "node scripts/package.mjs",
+    "e2e:capture": "AIRDECK_CAPTURE=1 playwright test tests/e2e/capture.spec.js --trace off"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/chrome": "^0.0.287",
+    "eslint": "^9.39.5",
+    "globals": "^15.15.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}

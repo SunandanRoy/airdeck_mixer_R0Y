@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AirDeck</title>
+    <link rel="stylesheet" href="popup.css" />
+    <script type="module" src="popup.js"></script>
+  </head>
+  <body>
+    <header>
+      <img src="../../icons/48.png" alt="" width="28" height="28" />
+      <h1>AirDeck</h1>
+    </header>
+    <p id="track" class="track">Checking this tab…</p>
+    <div class="decks">
+      <button id="send-a" class="send a" disabled>
+        <span class="label">Send to Deck A</span>
+        <kbd>Alt+Shift+1</kbd>
+      </button>
+      <button id="send-b" class="send b" disabled>
+        <span class="label">Send to Deck B</span>
+        <kbd>Alt+Shift+2</kbd>
+      </button>
+    </div>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <div class="links">
+      <button id="open-mixer" class="link">Open Mixer</button>
+      <button id="open-demo" class="link">Try the demo</button>
+    </div>
+  </body>
+</html>

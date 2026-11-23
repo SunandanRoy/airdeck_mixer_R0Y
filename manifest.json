@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "AirDeck",
+  "version": "0.1.0",
+  "description": "Turn your YouTube tabs into DJ decks. Mix songs, switch the bass and vocals on and off, and record. Runs entirely in your browser.",
+  "minimum_chrome_version": "116",
+  "permissions": ["tabCapture", "tabs", "storage", "scripting"],
+  "host_permissions": ["https://www.youtube.com/*", "https://m.youtube.com/*", "https://music.youtube.com/*"],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "AirDeck: send this tab to a deck",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png" }
+  },
+  "background": { "service_worker": "src/background.js", "type": "module" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*", "https://music.youtube.com/*"],
+      "js": ["src/content/youtube.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "send-to-deck-a": {
+      "suggested_key": { "default": "Alt+Shift+1", "mac": "Alt+Shift+1" },
+      "description": "Send this YouTube tab to Deck A"
+    },
+    "send-to-deck-b": {
+      "suggested_key": { "default": "Alt+Shift+2", "mac": "Alt+Shift+2" },
+      "description": "Send this YouTube tab to Deck B"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; img-src 'self' data: blob: https://i.ytimg.com; media-src 'self' blob:; connect-src 'self' blob:; style-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'"
+  },
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" }
+}

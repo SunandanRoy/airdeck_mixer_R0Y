@@ -1,0 +1,12 @@
+.welcome { max-width: 880px; margin: 0 auto; padding: 56px 16px; text-align: center; }
+.welcome h1 { font-size: 34px; margin: 16px 0 6px; }
+.lead { color: var(--muted); font-size: 17px; margin: 0 0 32px; }
+.cards { list-style: none; padding: 0; margin: 0 0 28px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; text-align: left; }
+@media (max-width: 760px) { .cards { grid-template-columns: minmax(0, 1fr); } }
+.cards li { background: linear-gradient(180deg, var(--panel), var(--bg-2)); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.cards h2 { font-size: 17px; margin: 10px 0 6px; }
+.cards p { margin: 0; color: var(--muted); }
+.num { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; font-weight: 800; background: var(--text); color: var(--bg); }
+.num.a { background: var(--a); }
+.num.b { background: var(--b); }
+.actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 12px; }

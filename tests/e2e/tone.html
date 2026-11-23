@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Tone tab</title></head>
+  <body>
+    <p>Plays a test tone (frequency from ?f=). Stands in for a YouTube tab.</p>
+    <script>
+      const f = Number(new URLSearchParams(location.search).get('f') || 440);
+      const ctx = new AudioContext();
+      const osc = new OscillatorNode(ctx, { frequency: f });
+      const g = new GainNode(ctx, { gain: 0.3 });
+      osc.connect(g).connect(ctx.destination);
+      osc.start();
+      ctx.resume();
+    </script>
+  </body>
+</html>

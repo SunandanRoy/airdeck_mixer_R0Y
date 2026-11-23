@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome to AirDeck</title>
+    <link rel="icon" href="../../icons/32.png" />
+    <link rel="stylesheet" href="../ui/app.css" />
+    <link rel="stylesheet" href="welcome.css" />
+    <script type="module" src="welcome.js"></script>
+  </head>
+  <body>
+    <main class="welcome">
+      <img src="../../icons/128.png" alt="" width="96" height="96" />
+      <h1>AirDeck is ready</h1>
+      <p class="lead">Turn any two YouTube tabs into DJ decks. Three steps, no account, nothing to set up.</p>
+      <ol class="cards">
+        <li>
+          <span class="num a">1</span>
+          <h2>Load Deck A</h2>
+          <p>Open a YouTube video and press <kbd>Alt+Shift+1</kbd>. Or click the AirDeck icon in the toolbar and choose <b>Deck A</b>.</p>
+        </li>
+        <li>
+          <span class="num b">2</span>
+          <h2>Load Deck B</h2>
+          <p>Open a second video in another tab and press <kbd>Alt+Shift+2</kbd>. The Mixer tab opens by itself.</p>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <h2>Mix</h2>
+          <p>Press play, tap <b>Sync</b> on Deck B, then hit the big <b>Mix</b> button. Tap <b>Bass</b> or <b>Vocals</b> to switch parts off.</p>
+        </li>
+      </ol>
+      <div class="actions">
+        <button id="demo" class="btn accent">Try it now with demo songs</button>
+        <button id="pin" class="btn">How do I pin the icon?</button>
+      </div>
+      <p id="pin-help" class="muted small hidden">Click the puzzle-piece icon at the top right of Chrome, then the pin next to <b>AirDeck</b>.</p>
+      <p class="muted small">Everything runs on your computer. AirDeck never downloads or saves YouTube audio; it only mixes what is already playing in your tabs.</p>
+    </main>
+  </body>
+</html>
