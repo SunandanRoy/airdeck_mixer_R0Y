@@ -13,7 +13,6 @@
     "lint": "eslint .",
     "check": "npm run typecheck && npm run lint && npm test && npm run e2e",
     "icons": "node scripts/make-icons.mjs",
-    "zip": "node scripts/package.mjs",
     "e2e:capture": "AIRDECK_CAPTURE=1 playwright test tests/e2e/capture.spec.js --trace off"
   },
   "devDependencies": {
