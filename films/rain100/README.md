@@ -8,7 +8,8 @@ A 60-second, 9:16 animated short (1080×1920). It has no narration. What if it r
 | `rain100.svg` | The film: a single self-contained SVG with CSS `@keyframes` and no external assets (~650 KB). |
 | `preview.html` | The SVG inlined on a dark page, with play/pause (or Space) and a scrubber. |
 | `render.js` | A frame-accurate Playwright/Chromium renderer that writes `rain100.mp4`. |
-| `rain100.mp4` | The rendered film: H.264, yuv420p, CRF 18, 30 fps, 60.0 s. |
+| `rain100.mp4` | Output of `render.js`: 1080×1920, H.264, yuv420p, CRF 18, 30 fps, 60.000 s, 1800 frames. It is about 330 MB, so it is not committed (see notes). |
+| `rain100_web.mp4` | A committed 720×1280 copy (CRF 28, ~12 MB) for quick viewing. |
 
 ## Run it
 
@@ -48,3 +49,5 @@ node render.js --stills 0.5,5,12,20,28,36,45,50,58
 - The brief limits captions to 6 words, but its storyboard captions *"The first rain felt like a gift."* and *"And then, a crack in the clouds."* have 7. I kept the storyboard wording, and `build.js` prints a note about it on every build.
 - The empty-market price tag shows made-up prices (₹40 → ₹65 → ₹110 → ₹180) because the storyboard asks for a price that keeps being rewritten higher. These are illustrative, not statistics. There are no real-world figures anywhere in the film.
 - Captions use live text in `Inter, Helvetica, Arial, sans-serif`, so they render in whichever of those fonts the viewer has. The title card and counter are paths and look the same everywhere.
+- At CRF 18 the full render is about 330 MB. The film grain and three layers of rain are close to random noise, and x264 at CRF 18 keeps them. That is over GitHub's 100 MB file limit, so only the 720p preview copy is in git. Run `render.js` to regenerate the full-quality file (about 4 minutes with 4 workers).
+- **Live playback.** In headless Chromium with software rendering (no GPU), live playback measured 37 fps in Scene 1, 15 fps in Scene 3 (storm shake, blurred clouds and lightning), 25 fps in Scene 5, 59 fps in Scene 6 and 46 fps in Scene 7. Scene 3 is under 30 fps in that environment. Expect better on a normal GPU-backed Chrome, but I have not measured that. The MP4 is unaffected because it is rendered frame by frame.

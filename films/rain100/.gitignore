@@ -1,2 +1,4 @@
 frames/
 stills/
+# Full-quality CRF 18 render is ~330 MB (grain + rain are near-incompressible); regenerate with render.js
+rain100.mp4
